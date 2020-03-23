@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #div1 {
+      width: 190px;
+      height: 336px;
+      position: absolute;
+      border: 1px solid #aaaaaa;
+    }
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+  </style>
+  <script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</head>
+
+<body>
+
+  <p>Drag the W3Schools image into the rectangle:</p>
+<div>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img src="face.jpg" alt="" srcset="" width=50 class="center">
+  </div>
+  <br>
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  </div>
+</div>
+<div style="padding-top:300px;">
+<img id="drag1" src="cloth.png" draggable="true" ondragstart="drag(event)" width="190" height="336">
+<img id="drag2" src="cloth1.jpg" draggable="true" ondragstart="drag(event)" width="190" height="336">
+<img id="drag3" src="cloth2.jpg" draggable="true" ondragstart="drag(event)" width="190" height="336">
+<img id="drag4" src="cloth3.jpg" draggable="true" ondragstart="drag(event)" width="190" height="336">
+</div>
+</body>
+
+</html>
